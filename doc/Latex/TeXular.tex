@@ -1,0 +1,118 @@
+% \documentclass[11pt,a4paper,draft]{report}
+% \usepackage[latin1]{inputenc}
+% \usepackage{amsmath}
+% \usepackage{amsfonts}
+% \usepackage{amssymb}
+% \usepackage{makeidx}
+
+\input{./Preamble/header.tex}
+
+\begin{document}
+
+
+\section{Road Map}
+
+\subsection{Version Numbers}
+The version numbering of TeXular is similar to most projects.
+The number is divided into three sections which are seperated by a dot. The first number is the mayor release number and is incremented when a big change is made. The second number is the minor release number and is incremented when small changes and improvements are made. The third number is incremented when bugfixes are made.
+
+
+\subsection{Version 0.1}
+
+Basic GUI, create unformated LaTeX tables
+
+\subsection{Version 0.2}
+Format of columns {c|l|r}
+
+\subsection{Version 0.3}
+Import of existing LaTeX tables, keep as much information as possible
+
+
+\subsection{Version 0.4}
+Format for rows
+
+\subsection{Version 0.5}
+Format for cells {c|l|r}, bold, italic, underline...
+
+\subsection{Version 0.5}
+Import simple csv files. Use RegEx
+
+... small features, bugfixes...
+-> beta test
+
+\subsection{Version 1.0}
+Release
+
+\subsection{Version 1.0.x}
+Bugfixes
+
+\subsection{Version 1.1...}
+Feature requests as possible
+
+\subsection{Version 2.0}
+User can define code before and after a table (and presets), Preview (own .sty file and default), font in Qt table
+
+\subsection{Other things}
+- Tests
+- qmake
+- Valgrind
+- Copy Paste Excel
+
+
+
+\section{Analysis and Representation of LaTeX Constructs}
+
+\lstset{language=[LaTeX]TeX}
+
+\subsection{Simple Command}
+A simple command in LaTeX beginns with a backslash followed with the name of the command.
+
+Example:
+\begin{lstlisting}
+		\command
+\end{lstlisting}		
+
+\subsection{More complex Commands}
+Usualy a command has an argument. The argument is surrounded by braces.
+
+Example:
+\begin{lstlisting}
+	\command{argument}
+\end{lstlisting}
+
+A command can have more than one argument.
+
+Example:
+\begin{lstlisting}
+\command{argument1}{argument2}{argument3}
+\end{lstlisting}
+
+A command can have some options. The options are written in brackets.
+Usually a command has only options when there is at least one argument.
+There can be more than one block of arguments.
+
+Example:
+\begin{lstlisting}
+	\command[option11, option12][option21, option22]{argument}
+\end{lstlisting}
+
+Sometimes the options are represented as a key-value pair. The key and the value are seperated by a equals sign.
+
+Example:
+\begin{lstlisting}
+	\command[key=value]{argument}
+\end{lstlisting}
+
+\subsection{Environments}
+A LaTeX environment begins with the \lstinline{\begin} command and ends with the \lstinline{\end} command. In between is the text or code that belongs to the environment. Environments can have also options and agruments. The first argument is the name (type) of the environment.
+
+\begin{lstlisting}
+	\begin{environment}{arguments}
+		% text and LaTeX commands
+	\end{environment}
+\end{lstlisting}
+
+Environments can be included in other environments.
+
+
+\end{document}

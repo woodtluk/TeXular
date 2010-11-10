@@ -1,0 +1,115 @@
+\documentclass[paper=a4,headsepline,abstracton]{scrartcl}
+
+\usepackage[plainpages=false,pdfpagelabels]{hyperref}
+\hypersetup{
+  colorlinks=false,   % aktiviert farbige Referenzen
+  linkcolor=blue,
+  citecolor=blue,
+  pdfpagemode=UseNone,  % PDF-Viewer startet ohne Inhaltsverzeichnis et.al.
+  pdfstartview=FitH} % PDF-Viewer benutzt beim Start bestimmte Seitenbreite
+
+%
+
+
+\usepackage[latin1]{inputenc}
+%\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage{lmodern}
+
+\usepackage{pifont}
+
+\usepackage[francais,ngerman,english]{babel}
+\usepackage{babelbib}
+
+\usepackage{textcomp}
+\usepackage{makeidx}
+
+\usepackage{nomencl}
+%\input{./Preamble/nomexpand.tex}
+\makenomenclature
+\renewcommand{\nomname}{Glossary}
+\renewcommand{\nomlabel}[1]{#1:}
+%\renewcommand{\nomentryend}{noptest}
+\makenomenclature
+
+
+% BibTeX
+\usepackage[numbers]{natbib} 
+
+% Fuss- /Kopfzeilen
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\ihead{TeXular}
+\ohead{Lukas Woodtli}
+\cfoot{- \pagemark \ -}
+\usepackage[bottom]{footmisc}
+
+% keine berschriftennummern mit 0
+%\setcounter{secnumdepth}{3}
+
+\usepackage{titleref}
+
+\usepackage[clearempty]{titlesec}
+
+\usepackage{pstricks}
+%\usepackage[usenames,dvipsnames]{pstricks}
+%
+\usepackage{pst-all}
+\psset{unit=1cm}
+\usepackage{psfrag}
+\usepackage{pst-circ}
+
+\usepackage{pst-pdf}
+\usepackage{epsfig}
+\usepackage{pst-grad} % For gradients
+\usepackage{pst-plot} % For axes
+
+
+\usepackage{float}
+
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{multirow}
+
+%\usepackage[pict2e]{struktex}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+
+
+\usepackage{graphicx}
+%\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.eps, .gif, .emf, .jpg, .bmp, .fig, .pdf, .svg}
+%\usepackage {picins}	% umfliessende Bilder
+\usepackage{subfigure}
+%\usepackage{subfig}
+\usepackage{psfrag}
+
+% Colors
+\usepackage{color}
+% Colors for DisneyCopter
+\definecolor{dcblue}{rgb}{0.24609375,0.52734375,0.73046875}
+\definecolor{dcgreen}{rgb}{0.65234375,0.828125,0.0546875}
+\definecolor{dcyellow}{rgb}{1,0.98828125,0.05078125}
+\definecolor{dcviolet}{rgb}{0.68359375,0,0.375}
+\definecolor{dcred}{rgb}{0.91015625,0.41796875,0.06640625}
+
+
+\usepackage{pdfpages}
+
+
+
+\lstset{language=C, basicstyle=\ttfamily, tabsize=4, basicstyle=\small,
+				showspaces=false, showstringspaces=false, breaklines=true, breakatwhitespace=true}
+
+
+\title{DisneyCopter}
+\author{Lukas Woodtli \\ \href{mailto:woodtluk@students.zhaw.ch}{woodtluk@students.zhaw.ch}}
+\date{\today}
+
+
