@@ -1,5 +1,5 @@
 #include "tablerowelement.h"
-
+/*
 TableRowElement::TableRowElement()
 {
 }
@@ -12,3 +12,4 @@ QString TableRowElement::getLatexString() {
 QString TableRowElement::getTableData() {
   return AbstractTableElement::getTableData();
 }
+*/

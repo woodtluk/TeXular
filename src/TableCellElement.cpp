@@ -1,25 +1,25 @@
 #include "TableCellElement.h"
 
-CellElement::CellElement(  )
+TableCellElement::TableCellElement(  )
 {
 }
 
-CellElement::CellElement(QString strData) {
+TableCellElement::TableCellElement(QString strData) {
   m_strData = strData;
 }
 
 
 
-CellElement::~CellElement(  )
+TableCellElement::~TableCellElement(  )
 {
 }
 
 
 
-QString CellElement::getLatexString() {
+QString TableCellElement::getLatexString() {
   return m_strData;
 }
 
-QString CellElement::getTableData() {
+QString TableCellElement::getTableData() {
   return m_strData;
 }

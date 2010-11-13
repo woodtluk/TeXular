@@ -6,14 +6,14 @@
 #include <QString>
 
 
-class CellElement : public AbstractTableElement {
+class TableCellElement : public AbstractTableElement {
   /// @todo Implement Copy-, Assignmentconstructor...
-  Q_DISABLE_COPY(CellElement);
+  Q_DISABLE_COPY(TableCellElement);
 
 public:
-  CellElement();
-  CellElement(QString strData);
-  virtual ~CellElement();
+  TableCellElement();
+  TableCellElement(QString strData);
+  virtual ~TableCellElement();
 
   virtual QString getLatexString();
   virtual QString getTableData();
