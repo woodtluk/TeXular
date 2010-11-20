@@ -1,5 +1,23 @@
 #include "AbstractTableElement.h"
 
+/*
+AbstractTableElement::AbstractTableElement(const AbstractTableElement& rhs)
+  : m_listOfChildren(rhs.m_listOfChildren){
+
+}
+
+AbstractTableElement& AbstractTableElement::operator= (const AbstractTableElement& rhs) {
+  // self assignment
+  if (this == &rhs)
+  {
+    return *this;
+  }
+
+  m_listOfChildren = rhs.m_listOfChildren;
+
+  return *this;
+}*/
+
 QString AbstractTableElement::getLatexString() /*=0*/ {
   QString strToReturn;
   foreach(AbstractTableElement* child, m_listOfChildren) {

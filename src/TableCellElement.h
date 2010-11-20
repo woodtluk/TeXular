@@ -7,12 +7,14 @@
 
 
 class TableCellElement : public AbstractTableElement {
-  /// @todo Implement Copy-, Assignmentconstructor...
-  Q_DISABLE_COPY(TableCellElement);
 
 public:
   TableCellElement();
   TableCellElement(QString strData);
+
+  TableCellElement(const TableCellElement& rhs);
+  TableCellElement& operator= (const TableCellElement& rhs);
+
   virtual ~TableCellElement();
 
   virtual QString getLatexString();

@@ -10,18 +10,26 @@ class AbstractTableElement {
   Q_DISABLE_COPY(AbstractTableElement);
 
 public:
-  virtual ~AbstractTableElement() {};
+  //AbstractTableElement(const AbstractTableElement& rhs);
+  //AbstractTableElement& operator= (const AbstractTableElement& rhs);
+  virtual ~AbstractTableElement() {
+    foreach(AbstractTableElement* tableElement, m_listOfChildren) {
+      delete tableElement;
+    }
+  }
 
   virtual QString getLatexString()=0;
   virtual QString getTableData()=0;
 
+protected:
   void appendChild(AbstractTableElement* child);
   void insertChild(int index, AbstractTableElement* child);
   void removeChild(int index);
+  int getChildrenCount() const {return m_listOfChildren.count();}
 
 protected:
-  AbstractTableElement() {};
-  QList<AbstractTableElement* > * const getListOfChildren() {return &m_listOfChildren;}
+  AbstractTableElement() {}
+  //QList<AbstractTableElement* > const &getListOfChildren() {return m_listOfChildren;}
 
 private:
   QList<AbstractTableElement* > m_listOfChildren;
