@@ -19,6 +19,8 @@ public:
     void appendRow(TableRowElement* row) {
       appendChild(row);
     }
+
+
     void insertRow(int index, TableRowElement* row) {
        insertChild(index, row);
     }
@@ -27,9 +29,16 @@ public:
        removeChild(index);
     }
 
-    int getRowCount() const {return getChildrenCount();}
+    int rowCount() const {return getChildrenCount();}
 
+    int columnCount() const {
+      int nColumns=0;
+      foreach(AbstractTableElement* row, m_listOfChildren) {
+        nColumns = qMax(row->getChildrenCount(), nColumns);
+      }
 
+    return nColumns;
+  }
 };
 
 #endif // TABLEELEMENT_H

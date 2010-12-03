@@ -19,6 +19,7 @@ public:
 
   virtual QString getLatexString();
   virtual QString getTableData();
+  virtual void setTableData(QString strText);
 
 private:
   QString m_strData;

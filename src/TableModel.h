@@ -3,15 +3,14 @@
 
 #include <QAbstractTableModel>
 
-#include <QList>
-#include <QStringList>
+class TableElement;
 
 class TableModel : public QAbstractTableModel
 {
     Q_OBJECT
 public:
     explicit TableModel(QObject *parent = 0);
-
+   virtual ~TableModel();
 
     int rowCount(const QModelIndex& parent = QModelIndex()) const;
     int columnCount(const QModelIndex& parent = QModelIndex()) const;
@@ -22,7 +21,7 @@ signals:
 public slots:
 
 private:
-    QList< QStringList>  m_lstItems;
+    TableElement* m_pTableData;
 
 };
 

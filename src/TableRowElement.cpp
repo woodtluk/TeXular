@@ -3,6 +3,11 @@
 TableRowElement::TableRowElement()
 {
 }
+TableRowElement::TableRowElement(int nCellsInRow) {
+  for(int i=0; i<nCellsInRow; i++) {
+    appendCell(new TableCellElement());
+  }
+}
 
 
 QString TableRowElement::getLatexString() {

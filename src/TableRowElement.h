@@ -14,6 +14,7 @@ class TableRowElement : public AbstractTableElement
 public:
 
     TableRowElement();
+    TableRowElement(int nCellsInRow);
     ~TableRowElement() {}
 
     virtual QString getLatexString();

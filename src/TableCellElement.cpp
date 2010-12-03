@@ -38,3 +38,7 @@ QString TableCellElement::getLatexString() {
 QString TableCellElement::getTableData() {
   return m_strData;
 }
+
+void TableCellElement::setTableData(QString strText) {
+  m_strData = strText;
+}
