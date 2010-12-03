@@ -7,6 +7,5 @@ HEADERS += \
 SOURCES += \
 			src/MainWindow.cpp \
 		src/TableModel.cpp \
-    src/Document.cpp
 
 FORMS += ui/MainWindow.ui

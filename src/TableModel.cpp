@@ -36,7 +36,7 @@ QVariant TableModel::data(const QModelIndex& index, int role /*=Qt::DisplayRole*
     return QVariant();
   }
 
-  if(Qt::DisplayRole == role) {
+  if(Qt::DisplayRole == role || Qt::EditRole == role) {
     return getCell(index.row(), index.column());
   }
 
@@ -44,12 +44,26 @@ QVariant TableModel::data(const QModelIndex& index, int role /*=Qt::DisplayRole*
 }
 
 Qt::ItemFlags TableModel::flags(const QModelIndex &index) const {
-  if(index.isValid()) {
+  if(!index.isValid()) {
     return Qt::ItemIsEnabled;
   }
 
-  return QAbstractItemModel::flags(index)
+  return QAbstractTableModel::flags(index)
          | Qt::ItemIsEnabled
          | Qt::ItemIsEditable
          | Qt::ItemIsSelectable;
+}
+
+bool TableModel::setData(const QModelIndex &index, const QVariant &value, int role/*=Qt::EditRole*/) {
+  if(!index.isValid()) {
+    return false;
+  }
+
+  if(Qt::EditRole == role) {
+    setCell(value.toString(), index.row(), index.column());
+    emit dataChanged(index, index);
+    return true;
+  }
+
+  return false;
 }
