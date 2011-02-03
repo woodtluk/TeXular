@@ -1,17 +1,16 @@
 #include "TableModel.h"
 
 
+#include "CsvParser.h"
+
 TableModel::TableModel(QObject *parent) :
     QAbstractTableModel(parent)
 {
+  QString csvText = "abc;edf\naaa;sdf";
+  QSharedPointer<CsvParser> parser = CsvParser::getInstance();
+  m_lstCells = parser->parseCsv(csvText);
 
-  for(int i=0; i<4; i++) {
-    for(int j=0; j<5; j++)
-    {
-      setCell("abc", i, j);
-    }
-  }
-
+  qDebug() << "Test";
 }
 
 TableModel::~TableModel() {

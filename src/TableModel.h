@@ -73,7 +73,6 @@ public:
     virtual Qt::ItemFlags flags( const QModelIndex & index ) const;
     virtual bool setData(const QModelIndex &index, const QVariant &value, int role=Qt::EditRole);
 
-
 signals:
 
 public slots:
