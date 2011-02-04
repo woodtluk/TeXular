@@ -10,7 +10,6 @@ TableModel::TableModel(QObject *parent) :
   QSharedPointer<CsvParser> parser = CsvParser::getInstance();
   m_lstCells = parser->parseCsv(csvText);
 
-  qDebug() << "Test";
 }
 
 TableModel::~TableModel() {

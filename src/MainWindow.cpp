@@ -10,5 +10,7 @@ MainWindow::MainWindow( QWidget * parent, Qt::WFlags f)
 	setupUi(this);
   Ui::MainWindow::m_viewTable->setModel(new TableModel);
 
+//  qDebug() << "Test";
+
 }
 //
