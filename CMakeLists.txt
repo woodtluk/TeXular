@@ -37,7 +37,7 @@
   # by default only QtCore and QtGui modules are enabled
   # other modules must be enabled like this:
 
-  SET( 
+  #SET(
 		#QT_USE_QTXML                 TRUE
         # QT_USE_QTASSISTANT           TRUE
         # QT_USE_QAXCONTAINER         TRUE
@@ -60,7 +60,7 @@
         # QT_USE_QTWEBKIT         TRUE
         # QT_USE_QTXMLPATTERNS          TRUE
         # QT_USE_PHONON         TRUE
-  )
+ # )
 
   # This sets the windows build that will need the special winmain@16 call. Qt provides
   #  this for us in the qtmain.lib file. Using this cmake code will ensure we have it
@@ -78,12 +78,14 @@
        	./src/MainWindow.cpp
         ./src/TableModel.cpp
         ./src/CsvParser.cpp
+        ./src/TableData.cpp
   )
 
   # another list, this time it includes all header files that should be treated with moc
   SET( TEXULAR_MOC_HDRS
         ./src/MainWindow.h
         ./src/TableModel.h
+        ./src/TableData.h
   )
 
   # headers that are not treated with moc

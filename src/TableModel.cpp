@@ -4,11 +4,12 @@
 #include "CsvParser.h"
 
 TableModel::TableModel(QObject *parent) :
-    QAbstractTableModel(parent)
+    QAbstractTableModel(parent),
+    m_tableData(new TableData)
 {
   QString csvText = "abc;edf\naaa;sdf";
   QSharedPointer<CsvParser> parser = CsvParser::getInstance();
-  m_lstCells = parser->parseCsv(csvText);
+  //m_tableData = parser->parseCsv(csvText);
 
 }
 
@@ -17,16 +18,11 @@ TableModel::~TableModel() {
 }
 
 int TableModel::rowCount(const QModelIndex& parent /*=QModelIndex()*/) const {
- return m_lstCells.count();
+ return m_tableData->rowCount();
 }
 
 int TableModel::columnCount(const QModelIndex& parent /*=QModelIndex()*/) const {
-  int nColumnCount = 0;
-  foreach(QStringList row, m_lstCells) {
-    nColumnCount = qMax(row.count(), nColumnCount);
-  }
-
-  return nColumnCount;
+  return m_tableData->columnCount();
 }
 
 QVariant TableModel::data(const QModelIndex& index, int role /*=Qt::DisplayRole*/) const {
@@ -35,7 +31,7 @@ QVariant TableModel::data(const QModelIndex& index, int role /*=Qt::DisplayRole*
   }
 
   if(Qt::DisplayRole == role || Qt::EditRole == role) {
-    return getCell(index.row(), index.column());
+    return m_tableData->getCell(index.row(), index.column());
   }
 
   return QVariant();
@@ -58,7 +54,7 @@ bool TableModel::setData(const QModelIndex &index, const QVariant &value, int ro
   }
 
   if(Qt::EditRole == role) {
-    setCell(value.toString(), index.row(), index.column());
+    m_tableData->setCell(value.toString(), index.row(), index.column());
     emit dataChanged(index, index);
     return true;
   }
