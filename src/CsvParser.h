@@ -7,6 +7,8 @@
 #include <QStringList>
 #include <QChar>
 
+#include "TableData.h"
+
 class CsvParser
 {
   Q_DISABLE_COPY(CsvParser);
@@ -14,7 +16,7 @@ class CsvParser
 public:
   static QSharedPointer<CsvParser> getInstance();
 
-  QList<QStringList> parseCsv(QString csvText);
+  TableDataPtr parseCsv(QString csvText);
 
 private:
   explicit CsvParser() : m_chSeparator(';') {};

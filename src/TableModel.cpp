@@ -9,7 +9,7 @@ TableModel::TableModel(QObject *parent) :
 {
   QString csvText = "abc;edf\naaa;sdf";
   QSharedPointer<CsvParser> parser = CsvParser::getInstance();
-  //m_tableData = parser->parseCsv(csvText);
+  m_tableData = parser->parseCsv(csvText);
 
 }
 

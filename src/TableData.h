@@ -14,15 +14,20 @@ typedef QSharedPointer<TableData> TableDataPtr;
 class TableData : public QObject
 {
     Q_OBJECT
+    Q_DISABLE_COPY(TableData)
+
 public:
     explicit TableData(QObject *parent = 0);
+    TableData(QList<QStringList> lstRows);
+    TableData(QObject *parent, QList<QStringList> lstRows);
 
+    ~TableData() {}
 
 public:
 
     int columnCount() const {
       int nColumn = 0;
-      foreach(QStringList strList, m_lstCells) {
+      foreach(QStringList strList, m_lstRows) {
         nColumn = qMax(nColumn, strList.count());
       }
 
@@ -30,20 +35,20 @@ public:
     }
 
     int rowCount() const {
-      return m_lstCells.count();
+      return m_lstRows.count();
     }
 
     QString getCell(int nRowIndex, int nColumnIndex) const {
-      Q_ASSERT(m_lstCells.count() > nRowIndex);
+      Q_ASSERT(m_lstRows.count() > nRowIndex);
       Q_ASSERT(columnCount() > nColumnIndex);
-      return m_lstCells.at(nRowIndex).at(nColumnIndex);
+      return m_lstRows.at(nRowIndex).at(nColumnIndex);
     }
 
     void setCell(QString strText, int nRowIndex, int nColumnIndex) {
-      if(m_lstCells.count() <= nRowIndex) {
-        appendRows(nRowIndex - m_lstCells.count() + 1);
+      if(m_lstRows.count() <= nRowIndex) {
+        appendRows(nRowIndex - m_lstRows.count() + 1);
       }
-      Q_ASSERT(m_lstCells.count() > nRowIndex);
+      Q_ASSERT(m_lstRows.count() > nRowIndex);
 
       qDebug() << columnCount();
       if(columnCount() <= nColumnIndex) {
@@ -52,7 +57,7 @@ public:
       qDebug() << columnCount();
       Q_ASSERT(columnCount() > nColumnIndex);
 
-      m_lstCells[nRowIndex][nColumnIndex] = strText;
+      m_lstRows[nRowIndex][nColumnIndex] = strText;
     }
 
     void appendRow() {
@@ -61,7 +66,7 @@ public:
         lstStrToAppend.append("");
       }
 
-      m_lstCells.append(lstStrToAppend);
+      m_lstRows.append(lstStrToAppend);
     }
 
     void appendRows(int nNumberOfRows) {
@@ -72,8 +77,8 @@ public:
     }
 
     void appendColumn() {
-      for(int i=0; i<m_lstCells.count(); i++) {
-        m_lstCells[i].append("");
+      for(int i=0; i<m_lstRows.count(); i++) {
+        m_lstRows[i].append("");
       }
     }
 
@@ -90,7 +95,7 @@ signals:
 
 public slots:
   private:
-    QList<QStringList> m_lstCells;
+    QList<QStringList> m_lstRows;
 };
 
 #endif // TABLEDATA_H

@@ -13,7 +13,7 @@ QSharedPointer<CsvParser> CsvParser::getInstance() {
 }
 
 
-QList<QStringList> CsvParser::parseCsv(QString csvText) {
+TableDataPtr CsvParser::parseCsv(QString csvText) {
   QStringList rows = csvText.split(QRegExp("(\n|\r\n|\r)"));
 
   QList<QStringList> dataToReturn;
@@ -22,5 +22,5 @@ QList<QStringList> CsvParser::parseCsv(QString csvText) {
     dataToReturn.append(row.split(m_chSeparator));
   }
 
-  return dataToReturn;
+  return TableDataPtr(new TableData(dataToReturn));
 }
